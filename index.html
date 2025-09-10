@@ -102,6 +102,7 @@
     </script>
 </head>
 
+
 <body>
     <style>
         .username {
@@ -153,6 +154,26 @@
             z-index: 1000;
             cursor: pointer;
         }
+                    .container {
+            position: relative; /* Keep it relative for pseudo-element */
+            text-align: center; /* Center text */
+            border-radius: 15px; /* Rounded corners */
+            padding: 30px; /* Add padding for spacing */
+            width: 300px; /* Restore previous width */
+            height: auto; /* Auto height */
+            box-shadow: 0 0 3px  rgb(255, 255, 255), 0 0 20px rgb(255, 255, 255), 0 0 30px rgb(255, 255, 255);
+            animation: floatRotate 6s ease-in-out infinite; /* Apply floating and rotating animation */
+            overflow: hidden; /* Prevent overflow from pseudo-element */
+        
+        }
+                @keyframes floatRotate {
+            0% { transform: translateY(0) rotateY(0deg) rotateX(0deg) rotateZ(0deg); }
+            20% { transform: translateY(-15px) rotateY(15deg) rotateX(10deg) rotateZ(5deg); } /* Move up and tilt */
+            40% { transform: translateY(0) rotateY(-10deg) rotateX(5deg) rotateZ(-5deg); } /* Move back down */
+            60% { transform: translateY(15px) rotateY(10deg) rotateX(-10deg) rotateZ(10deg); } /* Move down and tilt */
+            80% { transform: translateY(0) rotateY(0deg) rotateX(0deg) rotateZ(0deg); } /* Return to original */
+            100% { transform: translateY(0) rotateY(0deg) rotateX(0deg) rotateZ(0deg); } /* Final position */
+        }
 
         
        /* Glowing effect and subtle hover effect for the username */
@@ -166,13 +187,13 @@
 .socials {
     position: relative; /* Allow movement */
     animation: hoverSocials 10s ease-in-out infinite, glowSocials 2s ease-in-out infinite alternate;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.4);
+    text-shadow: 0 0 5px rgba(213, 16, 16, 0.8), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.4);
 }
 /* Glowing and hovering effect for the profile picture */
 .pfp-image {
     position: relative; /* Allow movement */
     animation: hoverPfp 10s ease-in-out infinite, glowPfp 2s ease-in-out infinite alternate;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(19, 171, 221, 0.5), 0 0 20px rgba(41, 179, 19, 0.4), 0 0 30px rgba(31, 200, 31, 0.3);
     border-radius: 50%; /* Keep the round shape */
 }
 
@@ -201,12 +222,13 @@
 /* Keyframes for pfp glowing effect */
 @keyframes glowPfp {
     0% {
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 10px rgb(110, 242, 108), 0 0 20px rgb(18, 242, 149), 0 0 30px rgb(36, 235, 10);
     }
     100% {
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.7), 0 0 40px rgba(255, 255, 255, 0.5), 0 0 60px rgba(255, 255, 255, 0.4);
+        box-shadow: 0 0 20px rgb(16, 33, 216), 0 0 40px rgba(95, 8, 210, 0.993), 0 0 60px rgb(43, 221, 249);
     }
 }
+
 
 /* Keyframes for username subtle hovering effect */
 @keyframes hoverUsername {
@@ -262,7 +284,7 @@
 /* Keyframes for socials glowing effect */
 @keyframes glowSocials {
     0% {
-        text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.4);
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.944), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.4);
     }
     100% {
         text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8), 0 0 45px rgba(255, 255, 255, 0.6);
@@ -319,6 +341,7 @@
 
 
 
+
 <!-- Snow effect script -->
 <script src="ven/snow.js"></script>
 <script>
@@ -337,125 +360,191 @@
 
 
 
-<audio id="audioPlayer"></audio>
 
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var audioPlayer = document.getElementById('audioPlayer');
-    var playPrompt = document.getElementById('playPrompt');
+<video id="videoPlayer" autoplay playsinline ></video>
 
-    // Define your playlist
-    const playlist = [
-        { src: 'ven.mp4', type: 'audio/mp3' },
-    ];
+<!-- Song title -->
+<p id="songTitle" class="fade-text">Loading...</p>
 
-    let currentTrackIndex = 0;
+<!-- Next button -->
+<button id="nextBtn" class="next-btn"> NeXt </button>
 
-    // Function to play the current track
-    function playCurrentTrack() {
-        audioPlayer.src = playlist[currentTrackIndex].src;
-        audioPlayer.type = playlist[currentTrackIndex].type;
-        audioPlayer.load(); // Load the new track
-        audioPlayer.play().then(function() {
-            playPrompt.style.display = 'none';
-        }).catch(function() {
-            // Show the prompt if autoplay fails
-            playPrompt.style.display = 'block';
-        });
+<style>
+    body {
+        background: #000;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
     }
 
-    // Function to handle playing the next track
-    function playNextTrack() {
-        currentTrackIndex++;
-        if (currentTrackIndex >= playlist.length) {
-            currentTrackIndex = 0;  // Reset to the first track if it's the end of the playlist
+    /* Fullscreen video background */
+    #videoPlayer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        z-index: -1;
+        background: black;
+        border: none;
+    }
+
+    /* Glowing song title */
+    
+    #songTitle {
+        text-align: center;
+        font-family: "Gloria Hallelujah", sans-serif;
+        font-size: 16px;
+        color: #fff;
+        margin-top: 0px;
+        font-weight: 500;
+        opacity: 0;
+        transition: opacity 0.6s ease-in-out;
+        text-shadow: 0 0 8px rgba(255,255,255,0.9),
+                     0 0 15px rgba(255,255,255,0.7);
+                     
+    }
+
+    .fade-in {
+        opacity: 1 !important;
+    }
+
+    /* Next button */
+    .next-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 20px;
+        font-family: "Gloria Hallelujah", sans-serif;
+        font-size: 16px;
+        border: none;
+        border-radius: 12px;
+        background: #111;
+        color: #fff;
+        cursor: pointer;
+        box-shadow: 0 0 10px rgba(255,255,255,0.4);
+        transition: all 0.3s ease;
+        z-index: 1000;
+    }
+
+    .next-btn:hover {
+        background: #222;
+        box-shadow: 0 0 15px rgba(255,255,255,0.6);
+    }
+
+    @media (max-width: 768px) {
+        .next-btn {
+            bottom: 15px;
+            right: 15px;
+            font-size: 14px;
+            padding: 10px 16px;
+            border-radius: 10px;
         }
-        playCurrentTrack();
     }
 
-    // Listen for the end of the current track
-    audioPlayer.addEventListener('ended', function() {
-        playNextTrack();
-    });
-
-    // Initial attempt to play the first track
-    playCurrentTrack();
-
-    // If the user clicks the prompt, try to play the audio
-    playPrompt.addEventListener('click', function() {
-        audioPlayer.play().then(function() {
-            playPrompt.style.display = 'none';
-        }).catch(function(error) {
-            console.error('Playback failed:', error);
-        });
-    });
-});
-</script>
-
-
-    <script src="ven/music.js"></script>
-</body>
-
-<video id="videoPlayer" autoplay controls playsinline></video>
-
-<video id="videoPlayer" autoplay controls playsinline></video>
+    @media (max-width: 480px) {
+        .next-btn {
+            bottom: 10px;
+            right: 10px;
+            font-size: 12px;
+            padding: 8px 14px;
+            border-radius: 8px;
+        }
+    }
+</style>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const videoPlayer = document.getElementById("videoPlayer");
+        const nextBtn = document.getElementById("nextBtn");
+        const songTitle = document.getElementById("songTitle");
 
-        // Playlist of videos
+        // Playlist
         const videoPlaylist = [
-            { src: "ven1.mp4", type: "video/mp4" },
-            { src: "ven2.mp4", type: "video/mp4" },
-            { src: "ven3.mp4", type: "video/mp4" },
-            { src: "ven4.mp4", type: "video/mp4" },
-            { src: "ven5.mp4", type: "video/mp4" },
-            { src: "ven6.mp4", type: "video/mp4" },
-            { src: "ven7.mp4", type: "video/mp4" },
-            { src: "ven8.mp4", type: "video/mp4" },            
-            { src: "ven9.mp4", type: "video/mp4" },
-            { src: "ven10.mp4", type: "video/mp4" },
+            { src: "ven1.mp4", type: "video/mp4", title: "Rolling Stones - Brent Faiyaz" },
+            { src: "ven2.mp4", type: "video/mp4", title: "Flxr - Osamason" },
+            { src: "ven3.mp4", type: "video/mp4", title: "Tree On The Hill - Nino paid" },
+            { src: "ven4.mp4", type: "video/mp4", title: "Ref - Osamason" },
+            { src: "ven5.mp4", type: "video/mp4", title: "Freestyle - Osamason" },
+            { src: "ven6.mp4", type: "video/mp4", title: "Green Goblin - Pradabagshawty" },
+            { src: "ven7.mp4", type: "video/mp4", title: "Rich in Rome - Ian X Nino Paid X Lazer Dim 700" },
+            { src: "ven8.mp4", type: "video/mp4", title: "Save Me - 41" },
+            { src: "ven9.mp4", type: "video/mp4", title: "X & Sex - Osamason" },
+            { src: "ven10.mp4", type: "video/mp4", title: "She - Tyler The Creator" },
+            { src: "ven11.mp4", type: "video/mp4", title: "Right My Wrongs - Bryson Tiller" },
+            { src: "ven12.mp4", type: "video/mp4", title: "Dont - Bryson Tiller" },
+            { src: "ven13.mp4", type: "video/mp4", title: "Me Or Sum - Nardo Wick" },
+            { src: "ven14.mp4", type: "video/mp4", title: "Bent - 41" },
+            { src: "ven15.mp4", type: "video/mp4", title: "Cant Leave My Bible - Lil Tony" },
+            { src: "ven16.mp4", type: "video/mp4", title: "Play This At My Funeral Remix - Nino Paid & Polo G" },
+            { src: "ven17.mp4", type: "video/mp4", title: "Back Of My Mind - Rockout Danny" },
+            { src: "ven18.mp4", type: "video/mp4", title: "USA DRUGS - Lazer Dim 700" },
+            { src: "ven19.mp4", type: "video/mp4", title: "Watch The Moon - Lil Tony" },
+            { src: "ven20.mp4", type: "video/mp4", title: "Laced Max - Lazer Dim 700 X PlaqueBoyMax" },
+            { src: "ven21.mp4", type: "video/mp4", title: "Fit Check- Ian & VonOff1700" },
+            { src: "ven22.mp4", type: "video/mp4", title: "Shut It Down- Ian" },
+            { src: "ven23.mp4", type: "video/mp4", title: "Get Back- Sha Ek & PJ Glizzy" },
+            { src: "ven24.mp4", type: "video/mp4", title: "The Hills - The Weeknd" },
+            { src: "ven25.mp4", type: "video/mp4", title: "We Not Like you- Nettspend" },
+            { src: "ven26.mp4", type: "video/mp4", title: "ALIVE - NBA Youngboy X Playboi Carti" },
+            { src: "ven27.mp4", type: "video/mp4", title: "New Choppa - Playboi Carti x ASAP Rocky" },
+            { src: "ven28.mp4", type: "video/mp4", title: "Just Wanna Rock - Lil Uzi Vert" },
+            { src: "ven29.mp4", type: "video/mp4", title: "3005- Childish Gambino" },
+            { src: "ven30.mp4", type: "video/mp4", title: "We Not Like you- Nettspend" },
                 ];
 
-        let currentVideoIndex = 0;
+        let unplayedSongs = [...videoPlaylist]; // pool of songs left
+        let currentVideo = null;
 
-        // Function to get a random index (not the same as current)
-        function getRandomIndex() {
-            let newIndex;
-            do {
-                newIndex = Math.floor(Math.random() * videoPlaylist.length);
-            } while (newIndex === currentVideoIndex && videoPlaylist.length > 1);
-            return newIndex;
+        function getNextSong() {
+            if (unplayedSongs.length === 0) {
+                // reset when all songs played
+                unplayedSongs = [...videoPlaylist];
+            }
+
+            // pick a random song from pool
+            const randomIndex = Math.floor(Math.random() * unplayedSongs.length);
+            const nextSong = unplayedSongs.splice(randomIndex, 1)[0]; // remove from pool
+            return nextSong;
         }
 
-        // Function to play a given video
-        function playCurrentVideo() {
-            videoPlayer.src = videoPlaylist[currentVideoIndex].src;
-            videoPlayer.type = videoPlaylist[currentVideoIndex].type;
+        function updateTitle(title) {
+            songTitle.classList.remove("fade-in");
+            void songTitle.offsetWidth; // restart animation
+            songTitle.textContent = title;
+            songTitle.classList.add("fade-in");
+        }
+
+        function playSong(song) {
+            currentVideo = song;
+            videoPlayer.src = song.src;
+            videoPlayer.type = song.type;
             videoPlayer.load();
-            videoPlayer.volume = 0.5; // Set volume (optional)
+            videoPlayer.volume = 0.2;
             videoPlayer.play().catch(err => {
                 console.error("Autoplay failed:", err);
             });
+            updateTitle(song.title);
         }
 
-        // When a video ends, pick a random one
         videoPlayer.addEventListener("ended", function () {
-            currentVideoIndex = getRandomIndex();
-            playCurrentVideo();
+            const nextSong = getNextSong();
+            playSong(nextSong);
         });
 
-        // Start with a random video
-        currentVideoIndex = getRandomIndex();
-        playCurrentVideo();
+        nextBtn.addEventListener("click", function () {
+            const nextSong = getNextSong();
+            playSong(nextSong);
+        });
+
+        // start first random song
+        const firstSong = getNextSong();
+        playSong(firstSong);
     });
 </script>
-
-
-
-        
+   
 <body>
     <header>
         <nav>
@@ -469,7 +558,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <div class>
             <div class="center">
-                <div class="container blur"><img class="pfp-image" style="border: 0px solid #1f202038;" src="ruben.jpg" alt="pfp">
+                <div class="container blur"><img class="pfp-image" style="border: 0px solid ;" src="ruben.jpg" alt="pfp">
                 <p class="username">ruben</span> <img class="badge" src="https://cdn.discordapp.com/emojis/1262462095207825438.webp?size=128&quality=lossless" title="Owner"></p>
                  <p class="bio-text">future comp sci major lol</span>
                         <div class="socials">
@@ -480,9 +569,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>        
             
             <br><br><br><br><br><br>
-            <p style="text-align: center; font-family: Poppins, sans-serif; font-size: 14px;">
-                #six seven
-            </p>
+            
             
             
         <script src="ven/pagecopy.js"></script>
