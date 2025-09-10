@@ -397,13 +397,60 @@ document.addEventListener('DOMContentLoaded', function() {
     <script src="ven/music.js"></script>
 </body>
 
-<video id="kira1" autoplay loop controls playsinlines>
-    <source src="ven.mp4" type="video/mp4">
-</video>
+<video id="videoPlayer" autoplay controls playsinline></video>
+
+<video id="videoPlayer" autoplay controls playsinline></video>
 
 <script>
-    var audioElement = document.getElementById("kira1");
-    audioElement.volume = 0.2; // Set the volume to a value between 0 and 1 (e.g., 0.5 for 50% volume)
+    document.addEventListener('DOMContentLoaded', function () {
+        const videoPlayer = document.getElementById("videoPlayer");
+
+        // Playlist of videos
+        const videoPlaylist = [
+            { src: "ven1.mp4", type: "video/mp4" },
+            { src: "ven2.mp4", type: "video/mp4" },
+            { src: "ven3.mp4", type: "video/mp4" },
+            { src: "ven4.mp4", type: "video/mp4" },
+            { src: "ven5.mp4", type: "video/mp4" },
+            { src: "ven6.mp4", type: "video/mp4" },
+            { src: "ven7.mp4", type: "video/mp4" },
+            { src: "ven8.mp4", type: "video/mp4" },            
+            { src: "ven9.mp4", type: "video/mp4" },
+            { src: "ven10.mp4", type: "video/mp4" },
+                ];
+
+        let currentVideoIndex = 0;
+
+        // Function to get a random index (not the same as current)
+        function getRandomIndex() {
+            let newIndex;
+            do {
+                newIndex = Math.floor(Math.random() * videoPlaylist.length);
+            } while (newIndex === currentVideoIndex && videoPlaylist.length > 1);
+            return newIndex;
+        }
+
+        // Function to play a given video
+        function playCurrentVideo() {
+            videoPlayer.src = videoPlaylist[currentVideoIndex].src;
+            videoPlayer.type = videoPlaylist[currentVideoIndex].type;
+            videoPlayer.load();
+            videoPlayer.volume = 0.5; // Set volume (optional)
+            videoPlayer.play().catch(err => {
+                console.error("Autoplay failed:", err);
+            });
+        }
+
+        // When a video ends, pick a random one
+        videoPlayer.addEventListener("ended", function () {
+            currentVideoIndex = getRandomIndex();
+            playCurrentVideo();
+        });
+
+        // Start with a random video
+        currentVideoIndex = getRandomIndex();
+        playCurrentVideo();
+    });
 </script>
 
 
@@ -424,7 +471,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="center">
                 <div class="container blur"><img class="pfp-image" style="border: 0px solid #1f202038;" src="ruben.jpg" alt="pfp">
                 <p class="username">ruben</span> <img class="badge" src="https://cdn.discordapp.com/emojis/1262462095207825438.webp?size=128&quality=lossless" title="Owner"></p>
-                 <p class="bio-text">i love penguins</span>
+                 <p class="bio-text">future comp sci major lol</span>
                         <div class="socials">
                         <div class="tooltip"><a target="_blank" href="https://instagram.com/ruetiji"><span class="tooltiptext">Instagram</span><i class="fa-brands fa-instagram social-icons"></i></a></div>
                         <div class="tooltip"><a target="_blank" href="https://tiktok.com/@intentv"><span class="tooltiptext">Tiktok</span><i class="fa-brands fa-tiktok social-icons"></i></a></div>
