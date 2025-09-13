@@ -1,0 +1,581 @@
+<! html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="abdi" />
+    <meta property="og:description" content="somali warrior" />
+    <meta property="og:url" content="sixseven.my/a">
+    <meta property="og:image" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/cdn-cgi/apps/head/7_N3aHJ6fMx1u8oH90iZ0LNZJvY.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah">
+    <link rel="stylesheet" href="test.css">
+    <link rel="shortcut icon" type="image/png" href="https://cdn.discordapp.com/emojis/1270447977684533372.webp?size=128&quality=lossless">
+    <meta name="theme-color" content="#26272E">
+    <script disable-devtool-auto="" src='npm/disable-devtool%40latest.js'></script>
+    <script nonce="7fe1e00d-6b77-4d67-8d1a-23c11819d852">
+        (function(w, d) {
+            ! function(f, g, h, i) {
+                f[h] = f[h] || {}
+
+                ;
+                f[h].executed = [];
+
+                f.zaraz = {
+                    deferred: [],
+                    listeners: []
+                }
+
+                ;
+                f.zaraz.q = [];
+
+                f.zaraz._f = function(j) {
+                    return function() {
+                        var k = Array.prototype.slice.call(arguments);
+
+                        f.zaraz.q.push({
+                            m: j,
+                            a: k
+                        })
+                    }
+                }
+
+                ;
+                for (const l of ["track", "set", "debug"]) f.zaraz[l] = f.zaraz._f(l);
+
+                f.zaraz.init = () => {
+                    var m = g.getElementsByTagName(i)[0],
+                        n = g.createElement(i),
+                        o = g.getElementsByTagName("title")[0];
+                    o && (f[h].t = g.getElementsByTagName("title")[0].text);
+                    f[h].x = Math.random();
+                    f[h].w = f.screen.width;
+                    f[h].h = f.screen.height;
+                    f[h].j = f.innerHeight;
+                    f[h].e = f.innerWidth;
+                    f[h].l = f.location.href;
+                    f[h].r = g.referrer;
+                    f[h].k = f.screen.colorDepth;
+                    f[h].n = g.characterSet;
+                    f[h].o = (new Date).getTimezoneOffset();
+
+                    if (f.dataLayer)
+                        for (const s of Object.entries(Object.entries(dataLayer).reduce(((t, u) => ({
+                                ...t[1],
+                                ...u[1]
+
+                            }))))) zaraz.set(s[0], s[1], {
+                            scope: "page"
+                        });
+                    f[h].q = [];
+
+                    for (; f.zaraz.q.length;) {
+                        const v = f.zaraz.q.shift();
+                        f[h].q.push(v)
+                    }
+
+                    n.defer = !0;
+
+                    for (const w of [localStorage, sessionStorage]) Object.keys(w || {}).filter((y => y.startsWith("_zaraz_"))).forEach((x => {
+                        try {
+                            f[h]["z_" + x.slice(7)] = JSON.parse(w.getItem(x))
+                        } catch {
+                            f[h]["z_" + x.slice(7)] = w.getItem(x)
+                        }
+                    }));
+                    n.referrerPolicy = "origin";
+                    n.src = "/ventryshield/contents.js?z=" + btoa(encodeURIComponent(JSON.stringify(f[h])));
+                    m.parentNode.insertBefore(n, m)
+                }
+
+                ;
+                ["complete", "interactive"].includes(g.readyState) ? zaraz.init() : f.addEventListener("DOMContentLoaded", zaraz.init)
+            }
+
+            (w, d, "zarazData", "script");
+        })(window, document);
+    </script>
+</head>
+
+
+<body>
+    <style>
+        .username {
+            font-family: "Poppins", sans-serif;
+        }
+
+        .username {
+            color: #ffffff
+        }
+
+        .bio-text {
+            color: #ffffff
+        }
+
+        .social-icons {
+            color: #ffffff
+        }
+
+        .btn-link {
+            color: #ffffff
+        }
+
+        .btn-link {
+            background-color: Transparent;
+        }
+
+        body {
+            background-color: #0d0d0e;
+            background-size: cover
+        }
+        
+        .musicbtn {
+            background: #000
+        }
+        
+        #playPrompt {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            line-height: 100vh;
+            font-family: "Poppins", sans-serif;
+            font-size: 20px;
+            z-index: 1000;
+            cursor: pointer;
+        }
+                    .container {
+            position: relative; /* Keep it relative for pseudo-element */
+            text-align: center; /* Center text */
+            border-radius: 15px; /* Rounded corners */
+            padding: 30px; /* Add padding for spacing */
+            width: 500px; /* Restore previous width */
+            height: auto; /* Auto height */
+            box-shadow: 0 0 3px  rgb(255, 255, 255), 0 0 20px rgb(255, 255, 255), 0 0 30px rgb(255, 255, 255);
+            animation: hoverPfp 10s ease-in-out infinite, glowPfp 2s ease-in-out infinite alternate;
+            overflow: hidden; /* Prevent overflow from pseudo-element */
+        
+        }
+                @keyframes floatRotate {
+            0% { transform: translateY(0) rotateY(0deg) rotateX(0deg) rotateZ(0deg); }
+            20% { transform: translateY(-15px) rotateY(15deg) rotateX(10deg) rotateZ(5deg); } /* Move up and tilt */
+            40% { transform: translateY(0) rotateY(-10deg) rotateX(5deg) rotateZ(-5deg); } /* Move back down */
+            60% { transform: translateY(15px) rotateY(10deg) rotateX(-10deg) rotateZ(10deg); } /* Move down and tilt */
+            80% { transform: translateY(0) rotateY(0deg) rotateX(0deg) rotateZ(0deg); } /* Return to original */
+            100% { transform: translateY(0) rotateY(0deg) rotateX(0deg) rotateZ(0deg); } /* Final position */
+        }
+
+        
+       /* Glowing effect and subtle hover effect for the username */
+.username {
+    position: relative; /* Allow movement */
+    animation: hoverUsername 8s ease-in-out infinite, glowUsername 2s ease-in-out infinite alternate;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+/* Glowing effect and subtle hover effect for the socials container */
+.socials {
+    position: relative; /* Allow movement */
+    animation: hoverSocials 10s ease-in-out infinite, glowSocials 2s ease-in-out infinite alternate;
+    text-shadow: 0 0 5px rgba(213, 16, 16, 0.8), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.4);
+}
+/* Glowing and hovering effect for the profile picture */
+.pfp-image {
+    position: relative; /* Allow movement */
+    animation: hoverPfp 10s ease-in-out infinite, glowPfp 2s ease-in-out infinite alternate;
+    box-shadow: 0 0 10px rgba(19, 171, 221, 0.5), 0 0 20px rgba(41, 179, 19, 0.4), 0 0 30px rgba(31, 200, 31, 0.3);
+    border-radius: 50%; /* Keep the round shape */
+}
+
+/* Keyframes for pfp subtle hovering effect */
+@keyframes hoverPfp {
+    0% {
+        transform: translate(0, 0);
+    }
+    20% {
+        transform: translate(-2px, 2px);
+    }
+    40% {
+        transform: translate(2px, -2px);
+    }
+    60% {
+        transform: translate(-1px, 1px);
+    }
+    80% {
+        transform: translate(1px, -1px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* Keyframes for pfp glowing effect */
+@keyframes glowPfp {
+    0% {
+        box-shadow: 0 0 10px rgb(250, 57, 9), 0 0 20px rgb(233, 74, 43), 0 0 30px rgb(158, 7, 7);
+    }
+    100% {
+        box-shadow: 0 0 20px rgb(255, 243, 6), 0 0 40px rgba(119, 7, 7, 0.993), 0 0 60px rgb(255, 109, 12);
+    }
+}
+
+
+/* Keyframes for username subtle hovering effect */
+@keyframes hoverUsername {
+    0% {
+        transform: translate(0, 0);
+    }
+    20% {
+        transform: translate(-3px, -1px);
+    }
+    40% {
+        transform: translate(3px, 2px);
+    }
+    60% {
+        transform: translate(-2px, 3px);
+    }
+    80% {
+        transform: translate(2px, -2px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* Keyframes for socials subtle hovering effect */
+@keyframes hoverSocials {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(-2px, 3px);
+    }
+    50% {
+        transform: translate(2px, -1px);
+    }
+    75% {
+        transform: translate(-1px, -2px);
+    }
+    100% {
+        transform: translate(1px, 2px);
+    }
+}
+
+/* Keyframes for username glowing effect */
+@keyframes glowUsername {
+    0% {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.4);
+    }
+    100% {
+        text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8), 0 0 45px rgba(255, 255, 255, 0.6);
+    }
+}
+
+/* Keyframes for socials glowing effect */
+@keyframes glowSocials {
+    0% {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.944), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.4);
+    }
+    100% {
+        text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8), 0 0 45px rgba(255, 255, 255, 0.6);
+    }
+}
+
+/* Glowing and hovering effect for the bio-text */
+.bio-text {
+    position: relative; /* Allow movement */
+    animation: hoverBio 8s ease-in-out infinite, glowBio 2s ease-in-out infinite alternate;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.4);
+    font-size: 18px; /* Adjust font size as needed */
+    color: white; /* Ensure the text color complements the glow */
+}
+
+/* Keyframes for bio-text subtle hovering effect */
+@keyframes hoverBio {
+    0% {
+        transform: translate(0, 0);
+    }
+    20% {
+        transform: translate(-2px, 1px);
+    }
+    40% {
+        transform: translate(2px, -2px);
+    }
+    60% {
+        transform: translate(-1px, 2px);
+    }
+    80% {
+        transform: translate(1px, -1px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* Keyframes for bio-text glowing effect */
+@keyframes glowBio {
+    0% {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.4);
+    }
+    100% {
+        text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8), 0 0 45px rgba(255, 255, 255, 0.6);
+    }
+}
+
+
+</style>    
+
+
+
+
+
+
+
+
+<!-- Snow effect script -->
+<script src="ven/snow.js"></script>
+<script>
+    // Adjust the snow effect here
+    // Assuming you have control over the size in your 'snow.js' file
+    // Look for a parameter like `flakeSize` or similar
+    // Here's a generic example
+    setupSnowEffect(snowSettings);
+    <div id="border">
+        <div id="borderTop" style="top: 0; left: 0;"></div>
+        <div id="borderRight" style="right: 0; top: 0;"></div>
+        <div id="borderBottom" style="bottom: 0; right: 0;"></div>
+        <div id="borderLeft" style="left: 0; bottom: 0;"></div>
+    </div>
+</script>
+
+
+
+
+
+<video id="videoPlayer" autoplay playsinline ></video>
+
+<!-- Song title -->
+<p id="songTitle" class="fade-text">Loading...</p>
+
+<!-- Next button -->
+<button id="nextBtn" class="next-btn"> Next </button>
+
+<style>
+    body {
+        background: #000;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    /* Fullscreen video background */
+    #videoPlayer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        z-index: -1;
+        background: black;
+        border: none;
+    }
+
+    /* Glowing song title */
+    
+    #songTitle {
+        text-align: center;
+        font-family: "Poppins", sans-serif;
+        font-size: 16px;
+        color: #ffffff;
+        margin-top: 0px;
+        font-weight: 500;
+        opacity: 0;
+        transition: opacity 0.6s ease-in-out;
+        text-shadow: 0 0 8px rgba(239, 0, 0, 0.9),
+                     0 0 15px rgba(255,255,255,0.7);
+                     
+    }
+
+    .fade-in {
+        opacity: 1 !important;
+    }
+
+    /* Next button */
+    .next-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 20px;
+        font-family: "Poppins", sans-serif;
+        font-size: 16px;
+        border: none;
+        border-radius: 12px;
+        background: #111;
+        color: #fff;
+        cursor: pointer;
+        box-shadow: 0 0 10px rgba(255,255,255,0.4);
+        transition: all 0.3s ease;
+        z-index: 1000;
+    }
+
+    .next-btn:hover {
+        background: #222;
+        box-shadow: 0 0 15px rgba(255,255,255,0.6);
+    }
+
+    @media (max-width: 768px) {
+        .next-btn {
+            bottom: 15px;
+            right: 15px;
+            font-size: 14px;
+            padding: 10px 16px;
+            border-radius: 10px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .next-btn {
+            bottom: 10px;
+            right: 10px;
+            font-size: 12px;
+            padding: 8px 14px;
+            border-radius: 8px;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const videoPlayer = document.getElementById("videoPlayer");
+        const nextBtn = document.getElementById("nextBtn");
+        const songTitle = document.getElementById("songTitle");
+
+        // Playlist
+        const videoPlaylist = [
+            { src: "abdi/abdi1.mp4", type: "video/mp4", title: "Novacane - Frank Ocean" },
+            { src: "abdi/abdi2.mp4", type: "video/mp4", title: "White Ferrari - Frank Ocean" },
+            { src: "abdi/abdi3.mp4", type: "video/mp4", title: "NOKIA - Drake" },
+            { src: "abdi/abdi4.mp4", type: "video/mp4", title: "Laugh Now Cry Later - Drake" },
+            { src: "abdi/abdi5.mp4", type: "video/mp4", title: "WHAT DID I MISS - Drake" },
+            { src: "abdi/abdi6.mp4", type: "video/mp4", title: "Sanguine Paradise - Lil Uzi Vert" },
+            { src: "abdi/abdi.7mp4", type: "video/mp4", title: "Turn It Up - Cochise" },
+            { src: "abdi/abdi.8mp4", type: "video/mp4", title: "ELEMENT - Kendrick Lamar" },
+            { src: "abdi/abdi.9mp4", type: "video/mp4", title: "SLUT ME OUT 2 - NLE CHOPPA" },
+            { src: "abdi/abdi.10mp4", type: "video/mp4", title: "DEVIL IN A NEW DRESS - RICK ROSS" },
+            { src: "abdi/abdi.11mp4", type: "video/mp4", title: "The Grinch - Trippie Red" },
+            { src: "abdi/abdi.12mp4", type: "video/mp4", title: "Tell Em - Cochise x $not" },
+            { src: "abdi/abdi.13mp4", type: "video/mp4", title: "Honest - Baby Keem" },
+            { src: "abdi/abdi.14mp4", type: "video/mp4", title: "Bandit - Juice Wrld X NBA Youngboy" },
+                ];
+
+        let unplayedSongs = [...videoPlaylist]; // pool of songs left
+        let currentVideo = null;
+
+        function getNextSong() {
+            if (unplayedSongs.length === 0) {
+                // reset when all songs played
+                unplayedSongs = [...videoPlaylist];
+            }
+
+            // pick a random song from pool
+            const randomIndex = Math.floor(Math.random() * unplayedSongs.length);
+            const nextSong = unplayedSongs.splice(randomIndex, 1)[0]; // remove from pool
+            return nextSong;
+        }
+
+        function updateTitle(title) {
+            songTitle.classList.remove("fade-in");
+            void songTitle.offsetWidth; // restart animation
+            songTitle.textContent = title;
+            songTitle.classList.add("fade-in");
+        }
+
+        function playSong(song) {
+            currentVideo = song;
+            videoPlayer.src = song.src;
+            videoPlayer.type = song.type;
+            videoPlayer.load();
+            videoPlayer.volume = 0.2;
+            videoPlayer.play().catch(err => {
+                console.error("Autoplay failed:", err);
+            });
+            updateTitle(song.title);
+        }
+
+        videoPlayer.addEventListener("ended", function () {
+            const nextSong = getNextSong();
+            playSong(nextSong);
+        });
+
+        nextBtn.addEventListener("click", function () {
+            const nextSong = getNextSong();
+            playSong(nextSong);
+        });
+
+        // start first random song
+        const firstSong = getNextSong();
+        playSong(firstSong);
+    });
+</script>
+   
+<body>
+    <header>
+        <nav>
+            <div class="header_logo"><img src="https://pluspng.com/img-png/transparent-png-hd-dates-hd-2008-0075-png-1280.png" alt="" srcset=""></div>
+            <div class="header_links">
+                <ul class="nav_links">
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class>
+            <div class="center">
+                <div class="container blur"><img class="pfp-image" style="border: 0px solid ;" src="abdi.jpg" alt="pfp">
+                <p class="username">abdi</span> <img class="badge" src="https://cdn.discordapp.com/emojis/1262462095207825438.webp?size=128&quality=lossless" title="Owner"></p>
+                 <p class="bio-text">that nigga bro</span>
+                        <div class="socials">
+                        <div class="tooltip"><a target="_blank" href="https://instagram.com/abdi_2turnt"><span class="tooltiptext">Instagram</span><i class="fa-brands fa-instagram social-icons"></i></a></div>
+                        <div class="tooltip"><a target="_blank" href="https://snapchat.com/t/DW8FOaJc"><span class="tooltiptext">Snapchat</span><i class="fa-brands fa-snapchat social-icons"></i></a></div>
+                        <div class="tooltip"><a target="_blank" href="https://tiktok.com/@abdi_2turnt"><span class="tooltiptext">Tiktok</span><i class="fa-brands fa-tiktok social-icons"></i></a></div>
+                                        </div>
+                                        
+            </div>        
+            
+            <br><br><br><br><br><br>
+            
+            
+            
+        <script src="ven/pagecopy.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/load.js"></script>
+        <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon='{"rayId":"789b5f154beb2a18","token":"033c33a962e74d16be982c1223e03590","version":"2022.11.3","si":100}' crossorigin="anonymous"></script></a>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <!-- Your existing head content here -->
+            <style>
+                body {
+                    align-items: center;
+                    justify-content: center;
+                    height: 100vh;
+                    margin: 0;
+                    backdrop-filter: blur(0px);
+                    cursor: url('https://cdn.discordapp.com/attachments/1146070422606057474/1155441506996461640/White_Crosshair_Cursor.cur') 16 16, auto !important;
+                }
+            </style>
+        </head>
+        </html>
+
+</html>
